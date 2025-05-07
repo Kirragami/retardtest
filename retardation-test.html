@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Retardation Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1c1c1c;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: #2c2c2c;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+    button {
+      background: #007bff;
+      border: none;
+      color: white;
+      padding: 0.8rem 1.2rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #question, #result {
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Retardation Test</h1>
+    <button onclick="startTest()">Start Test</button>
+
+    <div id="question" style="display:none;">
+      <p>Have you watched <strong>Fate/Stay Night</strong>?</p>
+      <button onclick="showResult('yes')">Yes</button>
+      <button onclick="showResult('no')">No</button>
+      <button onclick="showResult('maybe')">Plan to Watch</button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function startTest() {
+      document.getElementById('question').style.display = 'block';
+    }
+
+    function showResult(answer) {
+      const resultDiv = document.getElementById('result');
+      if (answer === 'yes') {
+        resultDiv.textContent = "You're 0% retarded. Great taste!";
+      } else if (answer === 'no') {
+        resultDiv.textContent = "You're 100% retarded. Watch it immediately.";
+      } else if (answer === 'maybe') {
+        resultDiv.textContent = "You're 50% retarded. You’re halfway there.";
+      }
+    }
+  </script>
+
+</body>
+</html>
